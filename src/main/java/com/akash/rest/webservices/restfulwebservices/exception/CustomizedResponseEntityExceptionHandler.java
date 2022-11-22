@@ -1,11 +1,9 @@
 package com.akash.rest.webservices.restfulwebservices.exception;
 
-import com.akash.rest.webservices.restfulwebservices.ErrorDetails;
 import com.akash.rest.webservices.restfulwebservices.user.UserNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,7 +27,7 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now().now(),"Total Error Count: " +ex.getErrorCount()+"First Error is this:"+ex.getFieldError().getDefaultMessage(),request.getDescription(false));
+        ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now().now(),"Total Error Count: " +ex.getErrorCount()+" First Error is this: "+ex.getFieldError().getDefaultMessage(),request.getDescription(false));
         return new ResponseEntity(errorDetails,HttpStatus.BAD_REQUEST);
 
     }

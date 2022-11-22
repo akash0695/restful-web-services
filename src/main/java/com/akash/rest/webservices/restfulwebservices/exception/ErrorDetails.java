@@ -1,4 +1,4 @@
-package com.akash.rest.webservices.restfulwebservices;
+package com.akash.rest.webservices.restfulwebservices.exception;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
